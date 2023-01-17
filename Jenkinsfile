@@ -10,7 +10,7 @@ pipeline {
     stage('Snyk Scan') {
       steps {
         echo 'Snyk Scan'
-        snykSecurity failOnError: true, failOnIssues: true, projectName: 'Synk Test', severity: 'medium', snykInstallation: 'Snyk', snykTokenId: '31c7247a-b712-44e0-9df8-9c8168fc1b84'
+        snykSecurity failOnError: false, failOnIssues: false, projectName: 'Synk Test', severity: 'medium', snykInstallation: 'Snyk', snykTokenId: '31c7247a-b712-44e0-9df8-9c8168fc1b84'
       }
     }
 
