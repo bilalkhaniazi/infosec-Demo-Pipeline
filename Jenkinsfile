@@ -30,6 +30,7 @@ pipeline {
         stage('Windows Tests') {
           steps {
             echo 'Run Windows tests'
+            html 'html caculateweb.html'
           }
         }
 
