@@ -7,8 +7,11 @@ pipeline {
         sh 'sh run_build_script.sh'
       }
     }
-    stage('Scan') {
-      snykSecurity failOnError: false, failOnIssues: false, projectName: 'Synk Test', severity: 'medium', snykInstallation: 'Snyk', snykTokenId: '31c7247a-b712-44e0-9df8-9c8168fc1b84'
+    stage('Snyk Scan') {
+      steps {
+        echo 'Snyk Scan'
+        snykSecurity failOnError: false, failOnIssues: false, projectName: 'Synk Test', severity: 'medium', snykInstallation: 'Snyk', snykTokenId: '31c7247a-b712-44e0-9df8-9c8168fc1b84'
+      }
     }
 
     stage('Linux Tests') {
