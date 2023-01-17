@@ -5,6 +5,7 @@ pipeline {
       steps {
         echo 'Build demo-app'
         sh 'sh run_build_script.sh'
+        sh 'npm install'
       }
     }
     stage('Snyk Scan') {
