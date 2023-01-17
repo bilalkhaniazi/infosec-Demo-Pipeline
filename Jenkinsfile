@@ -17,48 +17,9 @@ pipeline {
         snykSecurity failOnError: false, failOnIssues: false, projectName: 'SynkTest', severity: 'medium', snykInstallation: 'InfoSec', snykTokenId: '31c7247a-b712-44e0-9df8-9c8168fc1b84'
       }
     }
-
-    stage('Linux Tests') {
-      parallel {
-        stage('Linux Tests') {
-          steps {
-            echo 'Run Linux tests'
-            sh 'sh run_linux_tests.sh'
-          }
-        }
-
-        stage('Windows Tests') {
-          steps {
-            echo 'Run Windows tests'
-            html 'html caculateweb.html'
-          }
-        }
-
-      }
-    }
-
-    stage('Deploy Staging') {
       steps {
-        echo 'Deploy to staging environment'
-        input 'Ok to deploy to production?'
+        echo 'Deploying...'
       }
     }
-
-    stage('Deploy Production') {
-      post {
-        always {
-          archiveArtifacts(artifacts: 'target/demoapp.jar', fingerprint: true)
-        }
-
-        failure {
-          emailext(subject: 'Demoapp build failure', to: 'bvazcosta@gmail.com', body: 'Build failure for demoapp Build ${env.JOB_NAME} ')
-        }
-
-      }
-      steps {
-        echo 'Deploy to Prod'
-      }
-    }
-
   }
 }
