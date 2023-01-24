@@ -11,7 +11,7 @@ Bilals-MacBook-Air:~ bilalkhanniazi$ sqlmap -u testphp.vulnweb.com/artists.php?a
 
 [!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
 
-[*] starting @ 00:35:26 /2022-06-06/
+[*] starting @ 00:35:26 /2022-11-06/
 
 [00:35:27] [INFO] testing connection to the target URL
 [00:35:28] [INFO] checking if the target is protected by some kind of WAF/IPS
@@ -97,4 +97,4 @@ available databases [2]:
 
 [00:38:08] [INFO] fetched data logged to text files under '/Users/bilalkhanniazi/.local/share/sqlmap/output/testphp.vulnweb.com'
 
-[*] ending @ 00:38:08 /2022-06-06/
+[*] ending @ 00:38:08 /2022-11-06/
